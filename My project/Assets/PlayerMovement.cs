@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            physics.velocity = new Vector2(physics.velocity.x, 14f);
+            physics.velocity = new Vector2(physics.velocity.x, 16f);
         }
     }
 }
