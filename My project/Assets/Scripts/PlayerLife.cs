@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     public int health = 100;
+    private int MAX_HEALTH = 100;
+    //private int MAX_HEALTH = 100 + (healthupgrade*20)
+    public int score = 0;
 
     private Rigidbody2D rb;
     //private Animator anim;
@@ -15,6 +18,50 @@ public class PlayerLife : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
     }
+
+    private void Update()
+    {
+        
+    }
+
+    /* int healthupgrade = 0;
+     * if(hpupgrade)
+     * {
+     *      healthupgrade += 1;
+     * }
+    */
+
+    public void Damage(int amount)
+    {
+        if (amount < 0)
+        {
+            throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
+        }
+        this.health -= amount;
+
+        if (health <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        if (amount < 0)
+        {
+            throw new System.ArgumentOutOfRangeException("Cannot have negative Healing");
+        }
+
+        if (health + amount > MAX_HEALTH)
+        {
+            this.health = MAX_HEALTH;
+        }
+        else
+        {
+            this.health += amount;
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
