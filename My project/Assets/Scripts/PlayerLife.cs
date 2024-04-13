@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    public int health = 100;
+
     private Rigidbody2D rb;
     //private Animator anim;
     
