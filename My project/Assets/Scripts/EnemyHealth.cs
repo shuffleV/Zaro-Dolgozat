@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;
+    [SerializeField] private int health = 100;
 
+
+    public void SetHealth(int health)
+    {
+        this.health = health;
+    }
 
     public void Damage(int amount)
     {
