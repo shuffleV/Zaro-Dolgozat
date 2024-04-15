@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private EnemyData data;
 
+    public float cooldown = 0;
+    private float cdtime = 0.99f;
+
     private GameObject player;
 
     // Start is called before the first frame update
@@ -36,7 +39,18 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if (Mathf.Abs(player.transform.position.x - transform.position.x)<10 && Mathf.Abs(player.transform.position.y - transform.position.y) < 5)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) < 2 && Mathf.Abs(player.transform.position.y - transform.position.y) < 2)
+        {
+            if (Time.time > cooldown)
+            {
+                cooldown = Time.time + cdtime;
+                player.GetComponent<PlayerLife>().Damage(damage);
+            }
+        }
     }
 
     /*private void OnTriggerEnter2D(Collider2D collider)
@@ -51,7 +65,7 @@ public class Enemy : MonoBehaviour
     }
     */
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
@@ -61,4 +75,5 @@ public class Enemy : MonoBehaviour
             }
         }   
     }
+    */
 }

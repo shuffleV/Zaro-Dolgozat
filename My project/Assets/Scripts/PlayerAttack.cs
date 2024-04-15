@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
 
     private GameObject attackArea = default;
     private bool attack = false;
-    private float timeToAttack = 0.25f;
+    private float timeToAttack = 0.9f;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start()
