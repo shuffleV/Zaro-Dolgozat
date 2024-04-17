@@ -10,6 +10,13 @@ public class PlayerLife : MonoBehaviour
     //private int MAX_HEALTH = 100 + (healthupgrade*20)
     public int score = 0;
 
+    private IEnumerator DamageIndicator(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+        yield return new WaitForSeconds(0.15f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
     private Rigidbody2D rb;
     //private Animator anim;
     
@@ -38,6 +45,7 @@ public class PlayerLife : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
         this.health -= amount;
+        StartCoroutine(DamageIndicator(Color.red));
 
         if (health <= 0)
         {

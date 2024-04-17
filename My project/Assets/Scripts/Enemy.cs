@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        if (Mathf.Abs(player.transform.position.x - transform.position.x)<10 && Mathf.Abs(player.transform.position.y - transform.position.y) < 5)
+        if (Mathf.Abs(player.transform.position.x - transform.position.x)<10 && Mathf.Abs(player.transform.position.y - transform.position.y) < 3.5f)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
