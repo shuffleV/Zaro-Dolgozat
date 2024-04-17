@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
         this.health -= amount;
-        StartCoroutine(DamageIndicator(Color.red));
+        StartCoroutine(DamageIndicator(Color.clear));
 
         if (health <= 0)
         {
