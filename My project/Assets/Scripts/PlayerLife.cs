@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerLife : MonoBehaviour
 {
-    public int health = 100;
+    public int health;
     private int MAX_HEALTH = 100;
     //private int MAX_HEALTH = 100 + (healthupgrade*20)
+
+    public Healthbar healthbar;
+
+    public static Action OnPlayerDeath;
+
     public int score = 0;
 
     private IEnumerator DamageIndicator(Color color)
@@ -22,6 +28,8 @@ public class PlayerLife : MonoBehaviour
     
     private void Start()
     {
+        health = MAX_HEALTH;
+        healthbar.SetMaxHealth(MAX_HEALTH);
         rb = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
     }
@@ -45,6 +53,7 @@ public class PlayerLife : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
         this.health -= amount;
+        healthbar.SetHealth(health);
         StartCoroutine(DamageIndicator(Color.red));
 
         if (health <= 0)
@@ -83,6 +92,11 @@ public class PlayerLife : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         //anim.SetTrigger("death");
+        if (this.CompareTag("Player"))
+        {
+            Time.timeScale = 0;
+            OnPlayerDeath?.Invoke();
+        }
         Restart();
     }
 
