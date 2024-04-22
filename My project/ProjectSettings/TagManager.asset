@@ -49,3 +49,6 @@ TagManager:
   - name: Terrain
     uniqueID: 3904331911
     locked: 0
+  - name: BreakableWall
+    uniqueID: 1987456067
+    locked: 0

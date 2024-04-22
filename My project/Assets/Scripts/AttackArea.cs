@@ -13,5 +13,10 @@ public class AttackArea : MonoBehaviour
             EnemyHealth health = collider.GetComponent<EnemyHealth>();
             health.Damage(damage);
         }
+        else if (collider.GetComponent<BreakableWall>() != null)
+        {
+            BreakableWall isBroken = collider.GetComponent<BreakableWall>();
+            isBroken.WallBreak();
+        }
     }
 }
