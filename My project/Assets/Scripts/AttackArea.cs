@@ -18,5 +18,10 @@ public class AttackArea : MonoBehaviour
             BreakableWall isBroken = collider.GetComponent<BreakableWall>();
             isBroken.WallBreak();
         }
+        else if (collider.GetComponent<Chests>() != null)
+        {
+            Chests isBroken = collider.GetComponent<Chests>();
+            isBroken.ChestBreak();
+        }
     }
 }
