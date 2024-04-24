@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -36,5 +37,9 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
         Destroy(gameObject);
+        if (gameObject.CompareTag("Boss"))
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }
