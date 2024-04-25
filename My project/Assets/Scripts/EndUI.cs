@@ -1,50 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using MySql.Data;
 using MySql.Data.MySqlClient;
 
 public class EndUI : MonoBehaviour
 {
 
-    /*scene betöltésekor kérdezze le az adatbázist és írja be a usereket egy listába
-     * a gomb lenyomásakor egy if-ben nézze meg hogy a user szerepel-e a listába
-     * ha igen akkor update, ha nem akkor isert
-    */
+    string connStr = "server=localhost;user=RIV;database=riv_zarodolgozat;port=3306;password=Admin123";
 
-    private string connStr;
-    private MySqlConnection MySqlConnection;
-    private MySqlCommand MySqlCommand;
-    string query;
+    List<string> username = new List<string>();
+
+    public static int score = 0;
+    public TMP_Text FinalScoreText;
 
     public GameObject UserError = default;
     string text;
-
-    public void sendInfo()
-    {
-        connection();
-
-        query = "INSERT INTO `highscore`(`Username`, `Highscore`) VALUES ('Test','35000')";
-
-        MySqlCommand = new MySqlCommand(query, MySqlConnection);
-
-        MySqlCommand.ExecuteNonQuery();
-
-        MySqlConnection.Close();
-    }
-
-    public void connection()
-    {
-        connStr = "server=localhost;user=RIV;database=riv_zarodolgozat;port=3306;passwordAdmin123";
-        MySqlConnection = new MySqlConnection(connStr);
-
-        MySqlConnection.Open();
-    }
+    bool vane = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
+        
+        FinalScoreText.text = $"Your Score: {score}";
+        Debug.Log(score);
+
+        MySqlConnection conn = new MySqlConnection(connStr);
+        try
+        {
+            conn.Open();
+            string sql = "SELECT `Username`, `Highscore` FROM `highscore` WHERE 1";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                username.Add(rdr[0].ToString() + " " + rdr[1].ToString());
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log(ex.ToString());
+        }
     }
 
     // Update is called once per frame
@@ -64,7 +65,7 @@ public class EndUI : MonoBehaviour
             if (text.Contains(item))
                 specialchar = true;
         }
-        if (specialchar||text==""||text.Length<3)
+        if (specialchar||text==""||text.Length<3||text.Length>9)
         {
             UserError.SetActive(true);
         }
@@ -76,8 +77,44 @@ public class EndUI : MonoBehaviour
 
     public void SaveHighscore()
     {
+        MySqlConnection conn = new MySqlConnection(connStr);
         if (!UserError.activeInHierarchy)
         {
+            foreach (var item in username)
+            {
+                if (item.Split(' ')[0]==text)
+                {
+                    if (score>Convert.ToInt32(item.Split(' ')[1]))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string sql = $"UPDATE `highscore` SET `Highscore`={score} WHERE `Username`='{text}'";
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (System.Exception ex)
+                        {
+                            Debug.Log(ex.ToString());
+                        }
+                        vane = true;
+                    }
+                }
+            }
+            if (vane==false)
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = $"INSERT INTO `highscore` (`Username`, `Highscore`) VALUES ('{text}','{score}')";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.Log(ex.ToString());
+                }
+            }
             SceneManager.LoadScene(3);
         }
     }

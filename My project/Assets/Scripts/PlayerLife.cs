@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 using System;
 
@@ -13,6 +14,8 @@ public class PlayerLife : MonoBehaviour
     public Healthbar healthbar;
 
     public static Action OnPlayerDeath;
+
+    public TMP_Text scoreText;
 
     public int score = 0;
 
@@ -36,7 +39,8 @@ public class PlayerLife : MonoBehaviour
 
     private void Update()
     {
-        
+        scoreText.text = $"Score: {score}";
+        EndUI.score = score;
     }
 
     /* int healthupgrade = 0;
@@ -104,4 +108,6 @@ public class PlayerLife : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    
 }

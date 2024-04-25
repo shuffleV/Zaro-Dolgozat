@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 622071761}
   - component: {fileID: 622071763}
   m_Layer: 5
-  m_Name: EndScreen
+  m_Name: EndScreenPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56356aae4b125ec40978c920e2ad5c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FinalScoreText: {fileID: 1556064614}
   UserError: {fileID: 821959408}
 --- !u!1 &762916678
 GameObject:
@@ -1364,9 +1365,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Username must be at least 3 characters long. Username can only contain
-    capital and non-capital letters and numbers. Username cannot contain spaces and/or
-    special characters
+  m_text: Username must be minimum 3 and maximum 9 characters long. Username can
+    only contain capital and non-capital letters and numbers. Username cannot contain
+    spaces and/or special characters
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2011,7 +2012,7 @@ GameObject:
   - component: {fileID: 1731147815}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
