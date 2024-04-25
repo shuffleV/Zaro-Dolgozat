@@ -7,6 +7,11 @@ using MySql.Data.MySqlClient;
 public class EndUI : MonoBehaviour
 {
 
+    /*scene betöltésekor kérdezze le az adatbázist és írja be a usereket egy listába
+     * a gomb lenyomásakor egy if-ben nézze meg hogy a user szerepel-e a listába
+     * ha igen akkor update, ha nem akkor isert
+    */
+
     private string connStr;
     private MySqlConnection MySqlConnection;
     private MySqlCommand MySqlCommand;
