@@ -9,12 +9,7 @@ public class HPUpgrade : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            HPCollected();
+            Destroy(gameObject);
         }
-    }
-
-    public void HPCollected()
-    {
-        Destroy(gameObject);
     }
 }
