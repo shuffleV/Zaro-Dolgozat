@@ -97,8 +97,8 @@ public class EndUI : MonoBehaviour
                         {
                             Debug.Log(ex.ToString());
                         }
-                        vane = true;
                     }
+                    vane = true;
                 }
             }
             if (vane==false)
