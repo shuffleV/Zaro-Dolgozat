@@ -41,14 +41,12 @@ public class PlayerLife : MonoBehaviour
     {
         scoreText.text = $"Score: {score}";
         EndUI.score = score;
+
+        
+
     }
 
-    /* int healthupgrade = 0;
-     * if(hpupgrade)
-     * {
-     *      healthupgrade += 1;
-     * }
-    */
+     
 
     public void Damage(int amount)
     {
@@ -86,7 +84,13 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Spikes"))
+        if (collision.gameObject.CompareTag("HP"))
+        {
+            MAX_HEALTH += 20;
+            healthbar.SetMaxHealth(MAX_HEALTH);
+            health = MAX_HEALTH;
+        }
+        else if (collision.gameObject.CompareTag("Spikes"))
         {
             PlayerDeath();
         }

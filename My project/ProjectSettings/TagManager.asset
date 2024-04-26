@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Boss
   - Canvas
+  - HP
   layers:
   - Default
   - TransparentFX
