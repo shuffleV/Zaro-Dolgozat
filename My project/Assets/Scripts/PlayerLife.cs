@@ -19,6 +19,10 @@ public class PlayerLife : MonoBehaviour
 
     public int score = 0;
 
+    public static Vector2 respawn = new Vector2(-77.887f, -283.871f);
+
+    public GameObject enemies;
+
     private IEnumerator DamageIndicator(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
@@ -31,6 +35,11 @@ public class PlayerLife : MonoBehaviour
     
     private void Start()
     {
+        //nézd meg player attack
+        enemies = GameObject.FindGameObjectWithTag("Enemy");
+
+        enemies.gameObject.SetActive(false);
+
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);
         rb = GetComponent<Rigidbody2D>();
@@ -41,9 +50,6 @@ public class PlayerLife : MonoBehaviour
     {
         scoreText.text = $"Score: {score}";
         EndUI.score = score;
-
-        
-
     }
 
      
@@ -84,7 +90,11 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("HP"))
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+            respawn = gameObject.transform.position;
+        }
+        else if (collision.gameObject.CompareTag("HP"))
         {
             MAX_HEALTH += 20;
             healthbar.SetMaxHealth(MAX_HEALTH);
@@ -92,20 +102,23 @@ public class PlayerLife : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Spikes"))
         {
+            health = 0;
             PlayerDeath();
         }
     }
 
     private void PlayerDeath()
     {
-        rb.bodyType = RigidbodyType2D.Static;
+        //rb.bodyType = RigidbodyType2D.Static;
         //anim.SetTrigger("death");
         if (this.CompareTag("Player"))
         {
-            Time.timeScale = 0;
-            OnPlayerDeath?.Invoke();
+            //Time.timeScale = 0;
+            //OnPlayerDeath?.Invoke();
         }
-        Restart();
+        //Restart();
+        health = MAX_HEALTH;
+        transform.position = respawn;
     }
 
     private void Restart()

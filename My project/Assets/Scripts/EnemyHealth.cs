@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
+
     private IEnumerator DamageIndicator(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
         yield return new WaitForSeconds(0.15f);
         GetComponent<SpriteRenderer>().color = Color.white;
     }
-
 
     public void SetHealth(int health)
     {
@@ -36,8 +36,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void Death()
     {
-        Destroy(gameObject);
-        if (gameObject.CompareTag("Boss"))
+        if (gameObject.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+        }
+        else if (gameObject.CompareTag("MiniBoss"))
+        {
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("Boss"))
         {
             SceneManager.LoadScene(2);
         }

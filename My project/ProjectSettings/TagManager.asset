@@ -9,6 +9,8 @@ TagManager:
   - Boss
   - Canvas
   - HP
+  - MiniBoss
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
