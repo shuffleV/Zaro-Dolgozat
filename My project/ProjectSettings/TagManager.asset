@@ -19,6 +19,7 @@ TagManager:
   - PlantEnemy
   - DeadPlantEnemy
   - DMG
+  - DoubleJump
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
