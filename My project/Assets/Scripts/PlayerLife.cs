@@ -52,7 +52,7 @@ public class PlayerLife : MonoBehaviour
     private void Update()
     {
         scoreText.text = $"Score: {score}";
-        EndUI.score = score;
+        EndUI.score = score + 50000;
     }
 
      

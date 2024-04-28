@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     [SerializeField] private GameObject PointPrefab;
+    [SerializeField] private GameObject DmgPrefab;
 
     private IEnumerator DamageIndicator(Color color)
     {
@@ -37,19 +38,44 @@ public class EnemyHealth : MonoBehaviour
 
     private void Death()
     {
-        if (gameObject.CompareTag("Enemy"))
+        if (gameObject.CompareTag("StartingEnemy"))
         {
-            var point = Instantiate(PointPrefab, transform.position, Quaternion.identity);
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(125);
+            }
+
             Destroy(gameObject);
         }
-        else if (gameObject.CompareTag("MiniBoss"))
+        else if(gameObject.CompareTag("PlantEnemy"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(250);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("DeadPlantEnemy"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(375);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("PlantMiniBoss"))
         {
             for (int i = 0; i < 5; i++)
             {
                 var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(200);
+                point.SetValue(2000);
             }
-            
+            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (gameObject.CompareTag("Boss"))

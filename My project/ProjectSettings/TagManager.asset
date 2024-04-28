@@ -9,12 +9,15 @@ TagManager:
   - Boss
   - Canvas
   - HP
-  - MiniBoss
   - Checkpoint
   - Point
   - StartingChest
   - PlantChest
   - DeadPlantChest
+  - PlantMiniBoss
+  - StartingEnemy
+  - PlantEnemy
+  - DeadPlantEnemy
   layers:
   - Default
   - TransparentFX
