@@ -18,6 +18,7 @@ TagManager:
   - StartingEnemy
   - PlantEnemy
   - DeadPlantEnemy
+  - DMG
   layers:
   - Default
   - TransparentFX
