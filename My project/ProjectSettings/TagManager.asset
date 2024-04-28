@@ -11,6 +11,10 @@ TagManager:
   - HP
   - MiniBoss
   - Checkpoint
+  - Point
+  - StartingChest
+  - PlantChest
+  - DeadPlantChest
   layers:
   - Default
   - TransparentFX
@@ -56,4 +60,7 @@ TagManager:
     locked: 0
   - name: BreakableWall
     uniqueID: 1987456067
+    locked: 0
+  - name: Enemy
+    uniqueID: 3569063065
     locked: 0

@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
 
     public GameObject enemy;
+    public GameObject player;
 
 
 
@@ -14,8 +15,13 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            player.GetComponent<PlayerLife>().Heal(200);
             //nézd meg player attack
             enemy.SetActive(true);
+            for (int i = 0; i < enemy.transform.childCount; i++)
+            {
+                enemy.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
     }
 

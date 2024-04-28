@@ -21,7 +21,9 @@ public class PlayerLife : MonoBehaviour
 
     public static Vector2 respawn = new Vector2(-77.887f, -283.871f);
 
-    public GameObject enemies;
+    public GameObject StrartingEnemies;
+    public GameObject PlantEnemies;
+    public GameObject DeadPlantEnemies;
 
     private IEnumerator DamageIndicator(Color color)
     {
@@ -36,9 +38,10 @@ public class PlayerLife : MonoBehaviour
     private void Start()
     {
         //nézd meg player attack
-        enemies = GameObject.FindGameObjectWithTag("Enemy");
 
-        enemies.gameObject.SetActive(false);
+        StrartingEnemies.gameObject.SetActive(false);
+        PlantEnemies.gameObject.SetActive(false);
+        DeadPlantEnemies.gameObject.SetActive(false);
 
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);
@@ -85,6 +88,12 @@ public class PlayerLife : MonoBehaviour
         {
             this.health += amount;
         }
+        healthbar.SetHealth(health);
+    }
+
+    public void ScoreCount(int points)
+    {
+        score += points;
     }
 
 
@@ -117,14 +126,17 @@ public class PlayerLife : MonoBehaviour
             //OnPlayerDeath?.Invoke();
         }
         //Restart();
-        health = MAX_HEALTH;
+        
         transform.position = respawn;
+        health = MAX_HEALTH;
+        healthbar.SetMaxHealth(MAX_HEALTH);
     }
 
-    private void Restart()
+    /*private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    */
 
     
 }

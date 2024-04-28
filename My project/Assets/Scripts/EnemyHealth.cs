@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
+    [SerializeField] private GameObject PointPrefab;
 
     private IEnumerator DamageIndicator(Color color)
     {
@@ -38,10 +39,17 @@ public class EnemyHealth : MonoBehaviour
     {
         if (gameObject.CompareTag("Enemy"))
         {
-            gameObject.SetActive(false);
+            var point = Instantiate(PointPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
         else if (gameObject.CompareTag("MiniBoss"))
         {
+            for (int i = 0; i < 5; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(200);
+            }
+            
             Destroy(gameObject);
         }
         else if (gameObject.CompareTag("Boss"))
