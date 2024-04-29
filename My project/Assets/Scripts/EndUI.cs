@@ -115,7 +115,7 @@ public class EndUI : MonoBehaviour
                     Debug.Log(ex.ToString());
                 }
             }
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(5);
         }
     }
 }

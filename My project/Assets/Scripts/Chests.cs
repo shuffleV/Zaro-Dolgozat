@@ -12,7 +12,7 @@ public class Chests : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(250);
+                point.SetValue(100);
             }
 
             Destroy(gameObject);
@@ -22,7 +22,7 @@ public class Chests : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(500);
+                point.SetValue(200);
             }
 
             Destroy(gameObject);
@@ -32,7 +32,7 @@ public class Chests : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(750);
+                point.SetValue(250);
             }
 
             Destroy(gameObject);

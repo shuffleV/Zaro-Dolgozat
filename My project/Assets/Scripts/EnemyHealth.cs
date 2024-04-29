@@ -80,7 +80,8 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (gameObject.CompareTag("Boss"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
         }
+        // on player death heal boss
     }
 }
