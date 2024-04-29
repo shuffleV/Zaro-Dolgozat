@@ -37,5 +37,15 @@ public class Chests : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (gameObject.CompareTag("CrystalChest"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(225);
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

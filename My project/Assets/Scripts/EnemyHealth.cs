@@ -68,6 +68,26 @@ public class EnemyHealth : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (gameObject.CompareTag("CrystalEnemy"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(500);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("CrystalEnemyBig"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(575);
+            }
+
+            Destroy(gameObject);
+        }
         else if (gameObject.CompareTag("PlantMiniBoss"))
         {
             for (int i = 0; i < 5; i++)

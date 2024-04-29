@@ -21,6 +21,9 @@ TagManager:
   - DMG
   - DoubleJump
   - WallJump
+  - CrystalEnemy
+  - CrystalEnemyBig
+  - CrystalChest
   layers:
   - Default
   - TransparentFX
