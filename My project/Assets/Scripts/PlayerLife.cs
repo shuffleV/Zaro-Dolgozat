@@ -126,7 +126,7 @@ public class PlayerLife : MonoBehaviour
             //OnPlayerDeath?.Invoke();
         }
         //Restart();
-        
+        score -= 100;
         transform.position = respawn;
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);
