@@ -1,0 +1,47 @@
+Player Upgrades:
+HP Upgrade
+DMG Upgrade
+Double Jump
+Wall Jump
+Dash
+
+
+1 HP upgrade/area(-starting)
+
+100 alap HP
++ 20 HP/Upgrade (5 Upgrade)
+200 MAX HP
+
+25 alap DMG
++ 10 DMG/Upgrade (3 Upgrade)
+55 MAX DMG
+
+
+Starting Area: kék kő, piros szemű lovag
+Plant Area: növény, növényes ellenfelek
+DeadPlant Area: transition area, csontváz szerű ellenfelek
+End Area: Nagyon sötét/fekete
+Crystal Area: crystal kristállyal kapcsolatos ellenfelek
+Dark Area: sötét, pókhálók pók ellenfelek
+Light Area: világosabb téma, világos szürke letisztultabb kövek, piros szemű világosabb páncélú lovagok
+
+
+starting enemy: 5 DMG
+plant enemy: 10 DMG
+light enemy: 20 DMG
+crystal enemy: 25 DMG
+long enemy: 25 DMG
+dark enemy: 30 DMG
+end enemy: 35 DMG
+BOSS: 40 DMG
+
+mini boss: 10 hit/aktual DMG
+BOSS: 15 vagy 20 hit/MAX DMG
+
+
+Miniboss-ok:
+	opcionális
+	sok pont
+	damage upgrade
+
+
