@@ -151,6 +151,10 @@ public class PlayerMovement : MonoBehaviour
         {
             havewalljump = true;
         }
+        if (collision.gameObject.CompareTag("Dash"))
+        {
+            haveDash = true;
+        }
     }
 
     private bool IsOnGround()
