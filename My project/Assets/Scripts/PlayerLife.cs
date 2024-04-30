@@ -9,7 +9,6 @@ public class PlayerLife : MonoBehaviour
 {
     public int health;
     private int MAX_HEALTH = 100;
-    //private int MAX_HEALTH = 100 + (healthupgrade*20)
 
     public Healthbar healthbar;
 
@@ -24,6 +23,10 @@ public class PlayerLife : MonoBehaviour
     public GameObject StrartingEnemies;
     public GameObject PlantEnemies;
     public GameObject DeadPlantEnemies;
+    public GameObject CrystalEnemies;
+    public GameObject LightEnemies;
+    //public GameObject DarkEnemies;
+    //public GameObject EndEnemies;
 
     private IEnumerator DamageIndicator(Color color)
     {
@@ -37,11 +40,13 @@ public class PlayerLife : MonoBehaviour
     
     private void Start()
     {
-        //nézd meg player attack
-
         StrartingEnemies.gameObject.SetActive(false);
         PlantEnemies.gameObject.SetActive(false);
         DeadPlantEnemies.gameObject.SetActive(false);
+        CrystalEnemies.gameObject.SetActive(false);
+        LightEnemies.gameObject.SetActive(false);
+        //DarkEnemies.gameObject.SetActive(false);
+        //EndEnemies.gameObject.SetActive(false);
 
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);
@@ -125,18 +130,9 @@ public class PlayerLife : MonoBehaviour
             //Time.timeScale = 0;
             //OnPlayerDeath?.Invoke();
         }
-        //Restart();
         
         transform.position = respawn;
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);
     }
-
-    /*private void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    */
-
-    
 }

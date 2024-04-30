@@ -52,28 +52,4 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
-    /*private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            if (collider.GetComponent<PlayerLife>() !=null)
-            {
-                collider.GetComponent<PlayerLife>().Damage(damage);
-            }
-        }
-    }
-    */
-
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            if (collision.collider.GetComponent<PlayerLife>() !=null)
-            {
-                collision.collider.GetComponent<PlayerLife>().Damage(damage);
-            }
-        }   
-    }
-    */
 }

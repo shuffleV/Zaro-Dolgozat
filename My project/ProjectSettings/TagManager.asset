@@ -24,6 +24,10 @@ TagManager:
   - CrystalEnemy
   - CrystalEnemyBig
   - CrystalChest
+  - Dash
+  - DeadPlantEnemyBig
+  - LightChest
+  - LightMiniBoss
   layers:
   - Default
   - TransparentFX

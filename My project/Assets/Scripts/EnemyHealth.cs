@@ -68,6 +68,16 @@ public class EnemyHealth : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (gameObject.CompareTag("DeadPlantEnemyBig"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(450);
+            }
+
+            Destroy(gameObject);
+        }
         else if (gameObject.CompareTag("CrystalEnemy"))
         {
             for (int i = 0; i < 2; i++)
@@ -88,6 +98,86 @@ public class EnemyHealth : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (gameObject.CompareTag("LightEnemy"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(375);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("LightEnemyBig"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(450);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("DarkEnemy"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(875);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("DarkEnemyBig"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(1000);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("EndEnemy"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(1125);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("EndEnemyBig"))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(1375);
+            }
+
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("DarkMiniBoss"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(4000);
+            }
+            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if (gameObject.CompareTag("LightMiniBoss"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(2000);
+            }
+            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
         else if (gameObject.CompareTag("PlantMiniBoss"))
         {
             for (int i = 0; i < 5; i++)
@@ -100,6 +190,13 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (gameObject.CompareTag("Boss"))
         {
+            for (int i = 0; i < 10; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(5000);
+            }
+            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
             SceneManager.LoadScene(4);
         }
         // on player death heal boss
