@@ -25,8 +25,7 @@ public class PlayerLife : MonoBehaviour
     public GameObject DeadPlantEnemies;
     public GameObject CrystalEnemies;
     public GameObject LightEnemies;
-    //public GameObject DarkEnemies;
-    //public GameObject EndEnemies;
+    public GameObject EndEnemies;
 
     private IEnumerator DamageIndicator(Color color)
     {
@@ -45,8 +44,7 @@ public class PlayerLife : MonoBehaviour
         DeadPlantEnemies.gameObject.SetActive(false);
         CrystalEnemies.gameObject.SetActive(false);
         LightEnemies.gameObject.SetActive(false);
-        //DarkEnemies.gameObject.SetActive(false);
-        //EndEnemies.gameObject.SetActive(false);
+        EndEnemies.gameObject.SetActive(false);
 
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);
@@ -57,7 +55,6 @@ public class PlayerLife : MonoBehaviour
     private void Update()
     {
         scoreText.text = $"Score: {score}";
-        EndUI.score = score + 50000;
     }
 
      
@@ -118,6 +115,10 @@ public class PlayerLife : MonoBehaviour
         {
             health = 0;
             PlayerDeath();
+        }
+        else if (collision.gameObject.CompareTag("ExitLight"))
+        {
+            SceneManager.LoadScene(4);
         }
     }
 

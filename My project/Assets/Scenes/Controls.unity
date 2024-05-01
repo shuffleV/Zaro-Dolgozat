@@ -779,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 611.89, y: 276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922766885
@@ -810,14 +810,16 @@ MonoBehaviour:
 
     SPACE - Attack
 
+    Esc
+    - Pause Game
 
-    *IF
-    UNLOCKED*
+
+    *IF UNLOCKED*
 
     Double Press W - Double Jump
 
-    W after sticking to the wall
-    - Wall Jump
+    W after
+    sticking to the wall - Wall Jump
 
     Ctrl -  Dash'
   m_isRightToLeft: 0

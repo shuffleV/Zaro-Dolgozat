@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa1b62acd1821b46a7c7421de17ed76, type: 3}
   m_Name: DeadPlantEnemyBig
   m_EditorClassIdentifier: 
-  hp: 150
+  hp: 175
   damage: 20
-  speed: 3
+  speed: 2

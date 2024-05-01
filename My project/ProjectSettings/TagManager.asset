@@ -30,6 +30,11 @@ TagManager:
   - LightMiniBoss
   - LightEnemy
   - LightEnemyBig
+  - DeadPlantMiniBoss
+  - EndEnemy
+  - EndEnemyBig
+  - BossWall
+  - ExitLight
   layers:
   - Default
   - TransparentFX

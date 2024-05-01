@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
 
     private GameObject player;
 
+    private float horizontal;
+    private bool isFacingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.transform.position.x < transform.position.x)
+        {
+            horizontal = 1;
+        }
+        else if (player.transform.position.x > transform.position.x)
+        {
+            horizontal = -1;
+        }
         Attack();
+        Flip();
     }
 
     private void SetEnemyValues()
@@ -50,6 +62,32 @@ public class Enemy : MonoBehaviour
                 cooldown = Time.time + cdtime;
                 player.GetComponent<PlayerLife>().Damage(damage);
             }
+        }
+        if (gameObject.CompareTag("Boss"))
+        {
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < 9 && Mathf.Abs(player.transform.position.y - transform.position.y) < 3.5f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            }
+            if (Mathf.Abs(player.transform.position.x - transform.position.x) < 3f && Mathf.Abs(player.transform.position.y - transform.position.y) < 3.9f)
+            {
+                if (Time.time > cooldown)
+                {
+                    cooldown = Time.time + cdtime;
+                    player.GetComponent<PlayerLife>().Damage(damage);
+                }
+            }
+        }
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 }

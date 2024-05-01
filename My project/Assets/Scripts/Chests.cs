@@ -57,16 +57,6 @@ public class Chests : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else if (gameObject.CompareTag("DarkChest"))
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(400);
-            }
-
-            Destroy(gameObject);
-        }
         else if (gameObject.CompareTag("EndChest"))
         {
             for (int i = 0; i < 5; i++)

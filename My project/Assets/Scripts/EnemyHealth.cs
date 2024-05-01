@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int health = 100;
     [SerializeField] private GameObject PointPrefab;
     [SerializeField] private GameObject DmgPrefab;
+    private GameObject Bosswall;
 
     private IEnumerator DamageIndicator(Color color)
     {
@@ -127,26 +128,6 @@ public class EnemyHealth : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else if (gameObject.CompareTag("DarkEnemy"))
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(875);
-            }
-
-            Destroy(gameObject);
-        }
-        else if (gameObject.CompareTag("DarkEnemyBig"))
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(1000);
-            }
-
-            Destroy(gameObject);
-        }
         else if (gameObject.CompareTag("EndEnemy"))
         {
             for (int i = 0; i < 2; i++)
@@ -167,22 +148,12 @@ public class EnemyHealth : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else if (gameObject.CompareTag("DarkMiniBoss"))
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(4000);
-            }
-            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
         else if (gameObject.CompareTag("LightMiniBoss"))
         {
             for (int i = 0; i < 5; i++)
             {
                 var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
-                point.SetValue(2000);
+                point.SetValue(3000);
             }
             var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -197,6 +168,16 @@ public class EnemyHealth : MonoBehaviour
             var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        else if (gameObject.CompareTag("DeadPlantMiniBoss"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
+                point.SetValue(3000);
+            }
+            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
         else if (gameObject.CompareTag("Boss"))
         {
             for (int i = 0; i < 10; i++)
@@ -205,8 +186,8 @@ public class EnemyHealth : MonoBehaviour
                 point.SetValue(5000);
             }
             Destroy(gameObject);
-            SceneManager.LoadScene(4);
+            Bosswall = GameObject.FindGameObjectWithTag("BossWall");
+            Destroy(Bosswall);
         }
-        // on player death heal boss
     }
 }
