@@ -19,5 +19,11 @@ public class Point : MonoBehaviour
             player.GetComponent<PlayerLife>().ScoreCount(value);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.CompareTag("Spikes"))
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerLife>().ScoreCount(value);
+            Destroy(gameObject);
+        }
     }
 }

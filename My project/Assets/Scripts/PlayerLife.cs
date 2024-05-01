@@ -123,14 +123,7 @@ public class PlayerLife : MonoBehaviour
 
     private void PlayerDeath()
     {
-        //rb.bodyType = RigidbodyType2D.Static;
-        //anim.SetTrigger("death");
-        if (this.CompareTag("Player"))
-        {
-            //Time.timeScale = 0;
-            //OnPlayerDeath?.Invoke();
-        }
-        
+        score -= 200;
         transform.position = respawn;
         health = MAX_HEALTH;
         healthbar.SetMaxHealth(MAX_HEALTH);

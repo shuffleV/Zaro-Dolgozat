@@ -39,11 +39,11 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        if (Mathf.Abs(player.transform.position.x - transform.position.x)<10 && Mathf.Abs(player.transform.position.y - transform.position.y) < 3.5f)
+        if (Mathf.Abs(player.transform.position.x - transform.position.x)<9 && Mathf.Abs(player.transform.position.y - transform.position.y) < 3.5f)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
-        if (Mathf.Abs(player.transform.position.x - transform.position.x) < 2 && Mathf.Abs(player.transform.position.y - transform.position.y) < 2)
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) < 1.5f && Mathf.Abs(player.transform.position.y - transform.position.y) < 1.5f)
         {
             if (Time.time > cooldown)
             {

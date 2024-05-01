@@ -28,6 +28,8 @@ TagManager:
   - DeadPlantEnemyBig
   - LightChest
   - LightMiniBoss
+  - LightEnemy
+  - LightEnemyBig
   layers:
   - Default
   - TransparentFX

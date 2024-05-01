@@ -36,6 +36,15 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if (collision.gameObject.CompareTag("Spikes"))
+       {
+            health = 0;
+            Death();
+       }
+    }
+
     private void Death()
     {
         if (gameObject.CompareTag("StartingEnemy"))
@@ -195,7 +204,6 @@ public class EnemyHealth : MonoBehaviour
                 var point = Instantiate(PointPrefab, transform.position, Quaternion.identity).GetComponent<Point>();
                 point.SetValue(5000);
             }
-            var dmg = Instantiate(DmgPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             SceneManager.LoadScene(4);
         }
