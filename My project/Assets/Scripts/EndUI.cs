@@ -27,7 +27,6 @@ public class EndUI : MonoBehaviour
         Time.timeScale = 0;
         
         FinalScoreText.text = $"Your Score: {score}";
-        Debug.Log(score);
 
         MySqlConnection conn = new MySqlConnection(connStr);
         try
@@ -58,7 +57,6 @@ public class EndUI : MonoBehaviour
     {
         bool specialchar = false;
         text = user;
-        Debug.Log(text);
         string specialChar = @"\|Ä€Í÷×äğĞ[]í³£$ß¤<>#&@{}<;>*~¡^¢°²`ÿ´½¨¸§'+!%/=()?:_,.-éáíóöõúüûÉÁÍÓÖÕÚÜÛ ";
         foreach (var item in specialChar)
         {

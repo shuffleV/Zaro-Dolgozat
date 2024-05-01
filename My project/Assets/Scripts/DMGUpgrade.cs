@@ -11,7 +11,6 @@ public class DMGUpgrade : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             AttackArea.damage += 10;
-            Debug.Log(AttackArea.damage);
             Destroy(gameObject);
         }
     }
