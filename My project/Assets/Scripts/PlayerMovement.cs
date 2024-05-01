@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
                 physics.velocity = new Vector2(physics.velocity.x, physics.velocity.y * 0.5f);
             }
 
-            if (havewalljump)
+            if (havewalljump && !IsOnGround())
             {
                 WallSlide();
                 WallJump();
